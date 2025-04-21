@@ -11,11 +11,11 @@ class DoctorTitle extends Model
     use HasFactory;
 
 
-    protected $table = '';
-    protected $fillable = '';
+    protected $table = 'doctor_titles';
+    protected $fillable = 'name';
 
 
     //public function {{name}}{
-        //return $this->belongsTo(DoctorTitle,{{relation}})
+    //return $this->belongsTo(DoctorTitle,{{relation}})
     //}
 }

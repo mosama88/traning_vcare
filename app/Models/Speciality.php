@@ -11,11 +11,11 @@ class Speciality extends Model
     use HasFactory;
 
 
-    protected $table = '';
-    protected $fillable = '';
+    protected $table = 'specialities';
+    protected $fillable = 'name';
 
 
     //public function {{name}}{
-        //return $this->belongsTo(Speciality,{{relation}})
+    //return $this->belongsTo(Speciality,{{relation}})
     //}
 }
