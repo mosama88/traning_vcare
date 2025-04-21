@@ -12,7 +12,7 @@ class Speciality extends Model
 
 
     protected $table = 'specialities';
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
 
     //public function {{name}}{

@@ -6,8 +6,8 @@ use Faker\Provider\Base;
 
 class DoctorTitleProvider extends Base
 {
-    protected static $usedTitles = [];
 
+    protected static $usedTitles = [];
     protected static $titles = [
         'Intern',
         'Resident',
@@ -33,16 +33,18 @@ class DoctorTitleProvider extends Base
         'Consultant Cardiologist',
         'Consultant Endocrinologist',
     ];
+
     public function uniqueDoctorTitle()
     {
-        $available = array_filter(static::$titles, function ($title) {
-            return !in_array($title, static::$usedTitles);
+        $available = array_filter(static::$titles, function ($titles) {
+            return !in_array($titles, static::$usedTitles);
         });
         if (empty($available)) {
             throw new \Exception("No unique titles left.");
         }
         $title = static::randomElement($available);
         static::$usedTitles[] = $title;
+
         return $title;
     }
 }

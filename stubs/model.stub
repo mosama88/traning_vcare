@@ -13,7 +13,7 @@ class {{ class }} extends Model
 
 
     protected $table = '';
-    protected $fillable = '';
+    protected $fillable = [''];
 
 
     //public function {{name}}{

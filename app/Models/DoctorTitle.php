@@ -12,7 +12,7 @@ class DoctorTitle extends Model
 
 
     protected $table = 'doctor_titles';
-    protected $fillable = 'name';
+    protected $fillable = ['name'];
 
 
     //public function {{name}}{
