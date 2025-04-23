@@ -3,11 +3,12 @@
 namespace App\Repositories;
 
 use App\Models\Speciality;
+use Illuminate\Database\Eloquent\Collection;
 use App\Repositories\Interfaces\SpecialityRepositoryInterface;
 
 class SpecialityRepository implements SpecialityRepositoryInterface
 {
-    public function all(): \Illuminate\Database\Eloquent\Collection
+    public function all(): Collection
     {
         return Speciality::all();
     }

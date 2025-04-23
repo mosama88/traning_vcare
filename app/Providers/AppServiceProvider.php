@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Faker\SpecialityProvider;
 use App\Faker\DoctorTitleProvider;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\SpecialityRepository;
+use App\Repositories\Interfaces\SpecialityRepositoryInterface;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+      app()->bind(SpecialityRepositoryInterface::class,SpecialityRepository::class);
     }
 
     /**
