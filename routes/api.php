@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Dashboard\CountryController;
 use App\Http\Controllers\Dashboard\SpecialityController;
 use App\Http\Controllers\Dashboard\DoctorTitleController;
+use Illuminate\Auth\Events\Login;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -14,3 +15,6 @@ Route::get('/user', function (Request $request) {
 Route::apiResource('countries', CountryController::class);
 Route::apiResource('doctor_titles', DoctorTitleController::class);
 Route::apiResource('specialities', SpecialityController::class);
+// Route::post('login',function(){
+//    dd('Login');
+// });
