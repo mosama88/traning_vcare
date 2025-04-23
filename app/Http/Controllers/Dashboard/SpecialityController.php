@@ -12,39 +12,39 @@ class SpecialityController extends Controller
 {
     public function index()
     {
-        $country = Speciality::paginate(10);
-        return response()->json([SpecialityResource::collection($country), "Data Retrived Successfully", 200]);
+        $speciality = Speciality::paginate(10);
+        return response()->json([SpecialityResource::collection($speciality), "Data Retrived Successfully", 200]);
     }
 
 
-    public function show(Speciality $country)
+    public function show(Speciality $speciality)
     {
-        return response()->json([new SpecialityResource($country), "Data Retrived Successfully", 200]);
+        return response()->json([new SpecialityResource($speciality), "Data Retrived Successfully", 200]);
     }
 
 
     public function store(SpecialityRequest $request)
     {
 
-        $country = Speciality::create($this->mapRequestToCulomns($request->validated()));
+        $speciality = Speciality::create($this->mapRequestToCulomns($request->validated()));
 
-        return response()->json(['data' => new SpecialityResource($country), "Data Inserted Successfully", 200]);
+        return response()->json(['data' => new SpecialityResource($speciality), "Data Inserted Successfully", 200]);
     }
 
 
-    public function update(SpecialityRequest  $request, Speciality $country)
+    public function update(SpecialityRequest  $request, Speciality $speciality)
     {
-        $country->update($this->mapRequestToCulomns($request->validated()));
+        $speciality->update($this->mapRequestToCulomns($request->validated()));
 
-        return response()->json([new SpecialityResource($country), "Data Updated Successfully", 200]);
+        return response()->json([new SpecialityResource($speciality), "Data Updated Successfully", 200]);
     }
 
 
-    public function destroy(Speciality $country)
+    public function destroy(Speciality $speciality)
     {
-        $country->delete();
+        $speciality->delete();
 
-        return response()->json([new SpecialityResource($country), "Data Deleted Successfully", 200]);
+        return response()->json([new SpecialityResource($speciality), "Data Deleted Successfully", 200]);
     }
 
 
