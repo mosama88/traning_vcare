@@ -14,8 +14,8 @@ use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Http\Responses\CustomLoginResponse;
 use Illuminate\Support\Facades\RateLimiter;
-use Laravel\Fortify\Http\Responses\LoginResponse;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use Laravel\Fortify\Contracts\LoginResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -33,8 +33,7 @@ class FortifyServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        //Customizing Login Response by singleton insted of binding
-        app()->singleton(LoginResponse::class, CustomLoginResponse::class);
+
 
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
@@ -62,5 +61,9 @@ class FortifyServiceProvider extends ServiceProvider
                 return $user;
             }
         });
+
+
+        //Customizing Login Response by singleton insted of binding
+        app()->singleton(LoginResponse::class, concrete: CustomLoginResponse::class);
     }
 }
