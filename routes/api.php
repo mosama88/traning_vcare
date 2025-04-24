@@ -12,9 +12,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('countries', CountryController::class);
+    Route::apiResource('doctor_titles', DoctorTitleController::class);
+    Route::apiResource('specialities', SpecialityController::class);
+});
 
-Route::apiResource('countries', CountryController::class)->middleware('auth:sanctum');
-Route::apiResource('doctor_titles', DoctorTitleController::class);
-Route::apiResource('specialities', SpecialityController::class);
 
 Route::post('register', [RegisteredUserController::class, 'store']);
