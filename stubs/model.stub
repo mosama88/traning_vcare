@@ -16,7 +16,9 @@ class {{ class }} extends Model
     protected $fillable = [''];
 
 
-    //public function {{name}}{
-        //return $this->belongsTo({{class}},{{relation}})
+    
+   // public function speciality()
+    //{
+      //  return $this->belongsTo(Speciality::class, 'speciality_id');
     //}
 }
